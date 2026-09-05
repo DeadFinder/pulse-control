@@ -2,6 +2,9 @@
 
 > A private, outbound-only relay for timed Intiface vibration triggers.
 
+<img width="566" height="1013" alt="pulse control web image" src="https://github.com/user-attachments/assets/fcee560f-229b-4a3e-bcd0-518810299703" />
+
+
 Pulse Control is a small Vite + PHP + SQLite application that lets an approved public interface submit a bounded vibration request to a local Intiface Central instance. The local relay agent polls the server; the server never opens a connection to the private workstation.
 
 ![Status](https://img.shields.io/badge/status-self--hosted-171714?style=flat-square)
