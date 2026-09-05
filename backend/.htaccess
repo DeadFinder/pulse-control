@@ -1,0 +1,5 @@
+Options -Indexes
+Require all denied
+<FilesMatch "^(\.env|.*\.sqlite.*)$">
+  Require all denied
+</FilesMatch>

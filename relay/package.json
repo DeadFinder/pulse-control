@@ -1,0 +1,13 @@
+{
+  "name": "intiface-relay-agent",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node --env-file=.env src/agent.js",
+    "check": "node --check src/agent.js"
+  },
+  "dependencies": {
+    "@zendrex/buttplug.js": "^0.5.0"
+  }
+}

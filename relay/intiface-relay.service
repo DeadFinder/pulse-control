@@ -1,0 +1,20 @@
+[Unit]
+Description=Private Intiface relay agent
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/intiface-relay/relay
+EnvironmentFile=/etc/intiface-relay-agent.env
+ExecStart=/usr/bin/node src/agent.js
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=15
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+
+[Install]
+WantedBy=default.target

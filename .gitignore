@@ -1,0 +1,45 @@
+# Secrets and local configuration
+.env
+**/.env
+!.env.example
+**/*.local
+*.key
+*.pem
+*.crt
+*.csr
+*.p12
+*.pfx
+*.secret
+secrets/
+
+# Runtime data
+data/
+**/logs/
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+*.db
+*.db-shm
+*.db-wal
+*.webm
+*.wav
+*.mp3
+*.ogg
+
+# Dependencies and builds
+node_modules/
+frontend/dist/
+frontend/.env
+relay/.env
+backend/.env
+coverage/
+.cache/
+.vite/
+
+# Operating-system/editor files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.idea/
+.vscode/

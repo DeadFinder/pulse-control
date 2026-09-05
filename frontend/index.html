@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f3f0e9" />
+    <meta name="description" content="Send a timed device trigger securely." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <title>Pulse Control</title>
+  </head>
+  <body>
+    <div class="toast" id="toast" role="alert" aria-live="assertive" hidden></div>
+    <section class="offline-screen" id="offline-screen" aria-live="polite">
+      <div class="offline-mark" aria-hidden="true"></div>
+      <p class="eyebrow">Pulse Control / offline</p>
+      <h1>The device is charging<br />or DeadFinder may be sleeping.</h1>
+      <p>Please try again later.</p>
+    </section>
+    <main class="shell">
+      <header class="topbar" aria-label="Pulse Control">
+        <a class="brand" href="/" aria-label="Pulse Control home">
+          <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span>Pulse Control</span>
+        </a>
+        <div class="status-pill" id="status-pill" role="status">
+          <span class="status-dot" aria-hidden="true"></span>
+          <span id="status-label">Checking status</span>
+        </div>
+      </header>
+
+      <section class="hero" aria-labelledby="page-title">
+        <div class="hero-title">
+          <h1 id="page-title">Set the moment.<br />Send the pulse.</h1>
+        </div>
+        <p class="intro">Maybe you wanna <span class="accent accent-pink">tease</span><br />or <span class="accent accent-red">punish</span> DeadFinder?<br />So you can now!</p>
+      </section>
+
+      <section class="about" aria-labelledby="about-title">
+        <p class="step-label">About the relay</p>
+        <p id="about-title">This site is like a remote connection for DeadFinder's buttplug. Yep, that's it. You can trigger his buttplug once every 5 minutes. Tease this little femboy as much as you want! He will never know who is doing this.</p>
+      </section>
+
+      <section class="control-card" aria-labelledby="control-title">
+        <p class="control-intro">Choose a time, set the strength, complete the captcha, and send it. He will definitely feel it!</p>
+        <section class="control-section" aria-labelledby="duration-title">
+          <div class="card-heading">
+            <div><p class="step-label">Step 01</p><h2 id="duration-title">Trigger duration</h2></div>
+            <output class="duration-output" id="duration-output" for="duration"><strong>10</strong><span>seconds</span></output>
+          </div>
+          <div class="slider-wrap"><input id="duration" type="range" min="5" max="20" value="10" step="1" aria-describedby="duration-help" /><div class="range-labels" aria-hidden="true"><span>5 sec</span><span>20 sec</span></div><p class="sr-only" id="duration-help">Select a trigger duration from 5 to 20 seconds.</p></div>
+          <div class="premium-row"><div><p class="step-label">Extended use</p><p class="premium-copy">Want more time at full strength? Buy one premium trigger and unlock it for one use.</p></div><a id="premium-buy" class="premium-link" href="#" target="_blank" rel="noopener">Buy premium</a></div>
+          <div class="premium-redeem"><label for="invoice-id">DigiSeller invoice</label><input id="invoice-id" inputmode="numeric" autocomplete="off" placeholder="Invoice number" /><button id="unlock-premium" type="button">Unlock</button></div>
+        </section>
+
+        <section class="control-section" aria-labelledby="pattern-title">
+          <div class="section-heading"><div><p class="step-label">Step 02</p><h2 id="pattern-title">Signal pattern</h2></div><p>Choose a straight signal, a preset, or draw your own.</p></div>
+          <div class="mode-switch" role="group" aria-label="Signal mode"><button class="mode-button is-active" type="button" data-mode="direct">Direct</button><button class="mode-button" type="button" data-mode="draw">Draw</button><button class="mode-button" type="button" data-mode="preset">Presets</button></div>
+          <div class="draw-panel" id="draw-panel" hidden><div class="draw-toolbar"><span id="waveform-title">Draw a waveform</span><button id="clear-waveform" type="button">Clear</button></div><div class="waveform-wrap"><canvas id="waveform" width="900" height="260" aria-label="Waveform editor"></canvas></div><p class="draw-help">Vertical axis is strength. Horizontal axis is time. Your last drawing is saved in this browser only.</p></div>
+          <div class="preset-panel" id="preset-panel" hidden><label for="preset">Load prepared pattern</label><select id="preset"><option value="steady">Steady</option><option value="pulse">Pulse</option><option value="wave">Wave</option><option value="ramp">Ramp</option></select><p>Choose a preset to reload it, then edit the graph freely.</p></div>
+        </section>
+
+        <section class="control-section" aria-labelledby="strength-title">
+          <div class="card-heading"><div><p class="step-label">Step 03</p><h2 id="strength-title">Vibration strength</h2></div><output class="duration-output" id="intensity-output" for="intensity"><strong>100</strong><span>%</span></output></div>
+          <div class="slider-wrap"><input id="intensity" type="range" min="1" max="100" value="100" step="1" aria-describedby="intensity-help" /><div class="range-labels" aria-hidden="true"><span>1%</span><span>100%</span></div><p class="range-limit" id="intensity-limit">Maximum: 80%</p><p class="sr-only" id="intensity-help">Select vibration strength from 1 to 100 percent. The free maximum decreases as duration increases.</p></div>
+        </section>
+
+        <section class="control-section send-section" aria-labelledby="send-title">
+          <div class="nickname-row"><label for="nickname"><span class="step-label">Optional</span>Your nickname</label><input id="nickname" type="text" maxlength="32" autocomplete="nickname" placeholder="Anonymous" aria-describedby="nickname-help" /><p id="nickname-help">Shown only in DeadFinder's local notification and log.</p></div>
+          <div class="verification-row"><div class="verification-copy"><p class="step-label">Step 04</p><h2 id="send-title">Verify and send</h2><p>Verification keeps each request intentional.</p></div><div id="captcha" class="captcha" aria-label="Human verification"></div></div>
+        </section>
+
+        <button class="trigger-button" id="trigger-button" type="button" disabled>
+          <span id="button-label">Preparing</span>
+          <span class="button-icon" aria-hidden="true">→</span>
+        </button>
+
+        <div class="feedback" id="feedback" role="status" aria-live="polite">
+          <span class="feedback-icon" aria-hidden="true">i</span>
+          <span id="feedback-text">Connecting to the service…</span>
+        </div>
+        <div class="reaction" id="reaction" hidden>
+          <p class="step-label">Private reaction · expires in 5 minutes</p>
+          <audio id="reaction-audio" controls preload="none"></audio>
+        </div>
+      </section>
+
+      <footer>
+        <span>Secure single-request control</span>
+        <span class="footer-rule" aria-hidden="true"></span>
+        <span id="last-updated">Not yet synchronized</span>
+      </footer>
+    </main>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
